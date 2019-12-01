@@ -1,10 +1,7 @@
 <?php
-//error_reporting(0);
 header("Content-Type:application/json");
 require __DIR__ . '/vendor/autoload.php';
-use App\general;
-use App\get_data;
-use App\client_data;
+
 include "db_data.php";
 
 if (!empty($_GET['day']) and !empty($_GET['site_id']))
@@ -39,8 +36,7 @@ function response($status, $status_message, $data)
 function site_get_data($numberOfDay,$site_id)
 {
      global $db_info;
-    $date_start = (new client_data())->fulldatetime();
-    $date_finish = (new general())->find_prev_date($date_start,$numberOfDay);
-    $dataStats = (new get_data())->general_statistics($db_info,$site_id,$date_finish,$date_start);
-    return $dataStats;
+    $date_start = (new App\client_data())->fulldatetime();
+    $date_finish = (new App\general())->find_prev_date($date_start,$numberOfDay);
+    return (new App\get_data())->general_statistics($db_info,$site_id,$date_finish,$date_start);
 }
