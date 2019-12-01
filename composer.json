@@ -1,0 +1,19 @@
+{
+  "name": "mansur/mansur",
+  "description": "",
+  "require": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mansur bestas",
+      "email": "mansur@siirt.edu.tr"
+    }
+  ]
+}
